@@ -19,4 +19,20 @@ st.subheader("Tu resultado:")
 # ESTUDIANTE: Escribe tu código a continuación
 
 
-# st.dataframe(...)
+
+peliculas = {
+    "titulos": ["Interestelar", "v de vendetta", "John Wick 3: Parabellum", "Misión de rescate 2"],
+    "directores": ["Christopher Nolan", "James McTeigue", "Chad Stahelski", "Sam Hargrave"],
+    "años": [2014, 2005, 2019 , 2023]
+}
+
+
+df = pd.DataFrame(peliculas)
+
+
+print("Nuestra tabla de peliculas favoritas:")
+print(df)
+
+
+st.dataframe(df)
+

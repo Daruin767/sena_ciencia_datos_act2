@@ -16,7 +16,6 @@ Es muy habitual recibir reportes corporativos en Excel (`.xlsx`).
 st.info("💡 Nota: Asegúrate de tener el archivo Excel en la misma ruta antes de ejecutar, y si tienes problemas de lectura, prueba instalando openpyxl.")
 
 st.subheader("Tu resultado:")
-# ESTUDIANTE: Escribe tu código a continuación
 
-
-# st.dataframe(...)
+df_excel = pd.read_excel("reporte_financiero.xlsx")
+st.dataframe(df_excel)

@@ -15,10 +15,17 @@ Aprenderás a cargar información desde archivos de texto plano (CSV).
 
 st.subheader("Tu resultado:")
 st.write("**Datos desde archivo local:**")
-# ESTUDIANTE: Escribe tu código a continuación para el CSV local
+
+try:
+    df_local = pd.read_csv("calificaciones.csv")
+    st.dataframe(df_local.head(10))
+except FileNotFoundError:
+    st.warning("Por favor asegúrate de que el archivo exista en la misma carpeta.")
+
+
 
 
 st.write("**Datos desde internet:**")
-# ESTUDIANTE: Escribe tu código a continuación para el CSV de internet
 
-
+df_internet = pd.read_csv("https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv")
+st.dataframe(df_internet.head(10))

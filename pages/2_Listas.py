@@ -15,7 +15,18 @@ En este ejercicio debes crear un DataFrame partiendo de una **lista de listas** 
 """)
 
 st.subheader("Tu resultado:")
-# ESTUDIANTE: Escribe tu código a continuación
+
+datos_en_filas = [
+    ["Celular", "Electrónica", 25000, 10],     
+    ["Tablet", "Electrónica", 35000, 5],  
+    ["Laptop", "Electrónica", 800000, 3],     
+    ["Auriculares", "Accesorios", 50000, 20]      
+]
 
 
-# st.dataframe(...)
+df = pd.DataFrame(datos_en_filas, columns=["Nombre", "Categoría", "Precio", "Cantidad en stock"])
+
+print(df)
+
+
+st.dataframe(df)
