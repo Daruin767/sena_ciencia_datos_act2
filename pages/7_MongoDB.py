@@ -21,3 +21,17 @@ st.markdown("Si no tienes la conexión real, escribe tu código usando `st.code(
 
 
 
+# Requiere instalación previa: pip install pymongo pandas
+import pandas as pd
+from pymongo import MongoClient
+
+# 1. Te conectas con tu usuario y contraseña
+cliente = MongoClient('mongodb+srv://tu_usuario:tu_clave@cluster.mongodb.net') 
+
+# 2. Eliges qué cajón revisar
+base_datos = cliente["dbTest"]
+coleccion = base_datos["user"]
+
+# 3. Pandas convierte los documentos a Tabla automáticamente
+df_mongo = pd.DataFrame(list(coleccion.find()))
+print(df_mongo)

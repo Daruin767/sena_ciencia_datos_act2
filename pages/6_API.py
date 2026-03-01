@@ -17,8 +17,21 @@ A veces los datos están "vivos" y debes consultarlos a través de una API en in
 """)
 
 st.subheader("Tu resultado:")
-# ESTUDIANTE: Escribe tu código a continuación
-# Recuerda usar la librería requests que ya está importada arriba
 
 
-# st.dataframe(...)
+url_api = 'https://pokeapi.co/api/v2/pokemon?limit=10'
+respuesta = requests.get(url_api)
+
+if respuesta.status_code == 200:
+    datos_crudos = respuesta.json()
+    
+    lista_pokemon = datos_crudos["results"]
+    
+    df_pokemon = pd.DataFrame(lista_pokemon)
+    
+    st.dataframe(df_pokemon)
+
+else:
+    st.error(f"Error en la petición: {respuesta.status_code}")
+
+

@@ -18,4 +18,5 @@ st.info("💡 Nota: Asegúrate de tener el archivo Excel en la misma ruta antes 
 st.subheader("Tu resultado:")
 
 df_excel = pd.read_excel("reporte_financiero.xlsx")
+
 st.dataframe(df_excel)
