@@ -22,16 +22,27 @@ st.markdown("Si no tienes la conexión real, escribe tu código usando `st.code(
 
 
 # Requiere instalación previa: pip install pymongo pandas
-import pandas as pd
+st.code("""
+
 from pymongo import MongoClient
+import pandas as pd
 
-# 1. Te conectas con tu usuario y contraseña
-cliente = MongoClient('mongodb+srv://tu_usuario:tu_clave@cluster.mongodb.net') 
+# 1. Conexión teórica a MongoDB Atlas
+# Reemplazar tu_usuario, tu_clave y cluster por los datos reales
+cliente = MongoClient('mongodb+srv://tu_usuario:tu_clave@cluster.mongodb.net')
 
-# 2. Eliges qué cajón revisar
-base_datos = cliente["dbTest"]
-coleccion = base_datos["user"]
+# 2. Seleccionar la base de datos correcta
+base_datos = cliente["Veterinaria"]
 
-# 3. Pandas convierte los documentos a Tabla automáticamente
-df_mongo = pd.DataFrame(list(coleccion.find()))
-print(df_mongo)
+# 3. Seleccionar la colección correcta
+coleccion = base_datos["mascotas"]
+
+# 4. Extraer los documentos
+documentos = coleccion.find()
+
+# 5. Convertir los documentos en DataFrame
+df_mongo = pd.DataFrame(list(documentos))
+
+# 6. Mostrar en Streamlit
+st.dataframe(df_mongo)
+""")
